@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import Loader from './components/Loader';
 
-// Existing App Components (renamed to CertifyStudio)
-import CertifyStudio from './CertifyStudio';
-import VerificationPage from './pages/Verification';
+// Lazy-loaded route components (only downloaded when user visits that page)
+const CertifyStudio = lazy(() => import('./CertifyStudio'));
+const VerificationPage = lazy(() => import('./pages/Verification'));
+const Onboarding = lazy(() => import('./pages/Onboarding'));
 
-// New Quiz Components
-import QuizHub from './pages/quiz/QuizHub';
-import CreateQuiz from './pages/quiz/CreateQuiz';
-import TakeQuiz from './pages/quiz/TakeQuiz';
-import Leaderboard from './pages/quiz/Leaderboard';
-import History from './pages/quiz/History';
-import Analytics from './pages/quiz/Analytics';
-import StudentResults from './pages/quiz/StudentResults';
+// Quiz routes — loaded on demand
+const QuizHub = lazy(() => import('./pages/quiz/QuizHub'));
+const CreateQuiz = lazy(() => import('./pages/quiz/CreateQuiz'));
+const TakeQuiz = lazy(() => import('./pages/quiz/TakeQuiz'));
+const Leaderboard = lazy(() => import('./pages/quiz/Leaderboard'));
+const History = lazy(() => import('./pages/quiz/History'));
+const Analytics = lazy(() => import('./pages/quiz/Analytics'));
+const StudentResults = lazy(() => import('./pages/quiz/StudentResults'));
 import StartupCheck from './components/StartupCheck';
-import Onboarding from './pages/Onboarding';
 
 
 
@@ -28,24 +29,24 @@ function App() {
     <BrowserRouter>
       <Toaster position="top-center" />
       <StartupCheck>
-        <Routes>
-          {/* Main CertifyPro Routes */}
-          <Route path="/" element={<CertifyStudio />} />
-          <Route path="/how-it-works" element={<Onboarding onNavigate={navigate} />} />
-          <Route path="/verify" element={<VerificationPage onBack={() => navigate('/')} />} />
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            {/* Main CertifyPro Routes */}
+            <Route path="/" element={<CertifyStudio />} />
+            <Route path="/how-it-works" element={<Onboarding onNavigate={navigate} />} />
+            <Route path="/verify" element={<VerificationPage onBack={() => navigate('/')} />} />
 
-
-
-        {/* Quiz System Routes */}
-        <Route path="/quiz" element={<QuizHub />} />
-        <Route path="/quiz/create" element={<CreateQuiz />} />
-        <Route path="/quiz/results" element={<StudentResults />} />
-        <Route path="/quiz/results/:quizId" element={<StudentResults />} />
-        <Route path="/quiz/take/:quizId" element={<TakeQuiz />} />
-        <Route path="/quiz/leaderboard/:quizId" element={<Leaderboard />} />
-        <Route path="/quiz/history" element={<History />} />
-        <Route path="/quiz/analytics/:id" element={<Analytics />} />
-      </Routes>
+            {/* Quiz System Routes */}
+            <Route path="/quiz" element={<QuizHub />} />
+            <Route path="/quiz/create" element={<CreateQuiz />} />
+            <Route path="/quiz/results" element={<StudentResults />} />
+            <Route path="/quiz/results/:quizId" element={<StudentResults />} />
+            <Route path="/quiz/take/:quizId" element={<TakeQuiz />} />
+            <Route path="/quiz/leaderboard/:quizId" element={<Leaderboard />} />
+            <Route path="/quiz/history" element={<History />} />
+            <Route path="/quiz/analytics/:id" element={<Analytics />} />
+          </Routes>
+        </Suspense>
       </StartupCheck>
     </BrowserRouter>
   );
