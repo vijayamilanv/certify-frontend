@@ -1,4 +1,4 @@
-import React from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const AppSidebar = ({ activeSection, onNavigate, mobileOpen, onMobileClose }) => {
     const menuItems = [
@@ -9,20 +9,20 @@ const AppSidebar = ({ activeSection, onNavigate, mobileOpen, onMobileClose }) =>
     ];
     const bottomItems = [
         { id: 'enterprise', label: 'Enterprise', icon: 'pi pi-building' },
-        { id: 'contact', label: 'Contact VSGRPS', icon: 'pi pi-send' },
+        { id: 'contact', label: 'Support', icon: 'pi pi-question-circle' },
     ];
 
     const content = (
         <div style={{ display:'flex', flexDirection:'column', height:'100%' }}>
             {/* Logo Block */}
             <div style={{ padding:'28px 24px 20px', display:'flex', alignItems:'center' }}>
-                <img src="/logo.png" alt="CertLock Logo" style={{ height: 56, width: 'auto', objectFit: 'contain' }} />
+                <img src="/logo.png" alt="CertifyPro Logo" style={{ height: 56, width: 'auto', objectFit: 'contain' }} />
             </div>
 
-            <div style={{ height:1, background:'linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)', margin:'0 20px 16px' }}></div>
+            <div style={{ height:1, background:'linear-gradient(90deg, transparent, var(--border), transparent)', margin:'0 20px 16px' }}></div>
 
             {/* Section */}
-            <div style={{ padding:'4px 28px 8px', fontSize:'0.6rem', fontWeight:800, color:'#3B4F72', letterSpacing:'0.18em', textTransform:'uppercase' }}>
+            <div style={{ padding:'4px 28px 8px', fontSize:'0.6rem', fontWeight:800, color:'var(--text-sub)', letterSpacing:'0.18em', textTransform:'uppercase' }}>
                 <span style={{ display:'inline-flex', alignItems:'center', gap:6 }}>
                     <span style={{ width:12, height:2, background:'linear-gradient(90deg, #2563EB, #7C3AED)', borderRadius:2 }}></span>
                     Main Workspace
@@ -43,12 +43,12 @@ const AppSidebar = ({ activeSection, onNavigate, mobileOpen, onMobileClose }) =>
                 ))}
             </div>
 
-            <div style={{ height:1, background:'linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent)', margin:'8px 20px' }}></div>
+            <div style={{ height:1, background:'linear-gradient(90deg, transparent, var(--border), transparent)', margin:'8px 20px' }}></div>
 
-            <div style={{ padding:'4px 28px 8px', fontSize:'0.6rem', fontWeight:800, color:'#3B4F72', letterSpacing:'0.18em', textTransform:'uppercase' }}>
+            <div style={{ padding:'4px 28px 8px', fontSize:'0.6rem', fontWeight:800, color:'var(--text-sub)', letterSpacing:'0.18em', textTransform:'uppercase' }}>
                 <span style={{ display:'inline-flex', alignItems:'center', gap:6 }}>
                     <span style={{ width:12, height:2, background:'linear-gradient(90deg, #7C3AED, #EC4899)', borderRadius:2 }}></span>
-                    VSGRPS
+                    Resources
                 </span>
             </div>
             <div style={{ display:'flex', flexDirection:'column', gap:2, paddingBottom:12 }}>
@@ -59,6 +59,10 @@ const AppSidebar = ({ activeSection, onNavigate, mobileOpen, onMobileClose }) =>
                         <span>{item.label}</span>
                     </button>
                 ))}
+            </div>
+
+            <div style={{ padding: '0 16px 12px' }}>
+                <ThemeToggle style={{ width: '100%', justifyContent: 'center' }} />
             </div>
 
             {/* Free Tier Card */}

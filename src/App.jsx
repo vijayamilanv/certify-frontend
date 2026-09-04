@@ -29,7 +29,7 @@ function App() {
       <Toaster position="top-center" />
       <StartupCheck>
         <Routes>
-          {/* Main CertLock Routes */}
+          {/* Main CertifyPro Routes */}
           <Route path="/" element={<CertifyStudio />} />
           <Route path="/how-it-works" element={<Onboarding onNavigate={navigate} />} />
           <Route path="/verify" element={<VerificationPage onBack={() => navigate('/')} />} />

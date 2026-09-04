@@ -767,7 +767,7 @@ function App() {
                                     <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                                         <i className="pi pi-info-circle" style={{ color: '#3B82F6', fontSize: '0.85rem', marginTop: 2 }}></i>
                                         <div style={{ fontSize: '0.72rem', color: '#475569', lineHeight: 1.6 }}>
-                                            <strong style={{ color: '#3B82F6' }}>100% Free</strong> — Batches limited to 100 rows. Need higher limits or advanced features? <a href="#" style={{ color: '#7C3AED', fontWeight: 800 }}>Contact VSGRPS →</a>
+                                            <strong style={{ color: '#3B82F6' }}>100% Free</strong> — Batches limited to 100 rows. Need higher limits or advanced features? <a href="#contact" style={{ color: '#7C3AED', fontWeight: 800 }}>Contact Support →</a>
                                         </div>
                                     </div>
                                 </div>

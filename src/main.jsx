@@ -11,11 +11,14 @@ import "primeflex/primeflex.css";
 import "aos/dist/aos.css"; // AOS Animations
 
 import { PrimeReactProvider } from 'primereact/api';
+import { ThemeProvider } from './context/ThemeContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <PrimeReactProvider>
-      <App />
-    </PrimeReactProvider>
+    <ThemeProvider>
+      <PrimeReactProvider>
+        <App />
+      </PrimeReactProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 )

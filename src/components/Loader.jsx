@@ -51,7 +51,7 @@ const Loader = () => {
                             position: 'relative', zIndex: 2
                         }}
                     >
-                        <img src="/logo.png" alt="CertLock" style={{ width: '60%', height: '60%', objectFit: 'contain' }} />
+                        <img src="/logo.png" alt="CertifyPro" style={{ width: '60%', height: '60%', objectFit: 'contain' }} />
                     </motion.div>
 
                     {/* Orbiting Ring */}
@@ -72,7 +72,7 @@ const Loader = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
                 >
-                    <Title>CertLock</Title>
+                    <Title>CertifyPro</Title>
                     <StatusText>
                         {["Initializing Secure Environment...", "Verifying Assets...", "Generating Certificate..."][0]}
                         <DotFlashing />

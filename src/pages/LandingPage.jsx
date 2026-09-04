@@ -8,7 +8,7 @@ import HowItWorks from '../components/HowItWorks';
 import BenefitsSection from '../components/BenefitsSection';
 import PerformanceSection from '../components/PerformanceSection';
 import { useNavigate } from 'react-router-dom';
-import vsgrpsLogo from '../assets/vsgrps_navbar_dark_banner.webp';
+import ThemeToggle from '../components/ThemeToggle';
 
 const LandingPage = ({ onStartApp, user }) => {
     const navigate = useNavigate();
@@ -41,20 +41,22 @@ const LandingPage = ({ onStartApp, user }) => {
             {/* Top Navbar for Landing */}
             <nav style={{
                 position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100,
-                background: '#02060c', backdropFilter: 'blur(20px)',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.03)', padding: '0 12px', height: 72,
+                background: 'var(--bg-card)', backdropFilter: 'blur(20px)',
+                borderBottom: '1px solid var(--border)', padding: '0 20px', height: 72,
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between'
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <img src="/logo.png" alt="CertLock Logo" style={{ height: 52, width: 'auto', objectFit: 'contain' }} />
+                    <img src="/logo.png" alt="CertifyPro Logo" style={{ height: 52, width: 'auto', objectFit: 'contain' }} />
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div className="hidden md:flex" style={{ gap: 20, marginRight: 8 }}>
+                    <div className="hidden md:flex" style={{ gap: 20, marginRight: 8, alignItems: 'center' }}>
                         <a href="#features" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Features</a>
                         <a href="#how-it-works" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>How It Works</a>
                         <a href="#benefits" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Benefits</a>
                         <span onClick={() => navigate('/verify')} style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--accent)', cursor: 'pointer' }}>Verify</span>
                     </div>
+
+                    <ThemeToggle />
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12, borderLeft: '1px solid var(--border)', paddingLeft: 12 }}>
                         <div className="hidden md:flex" style={{ textAlign: 'right' }}>
@@ -103,7 +105,7 @@ const LandingPage = ({ onStartApp, user }) => {
                             From Data to Award in 3 Steps
                         </h2>
                         <p style={{ color: 'var(--text-secondary)', maxWidth: 600, margin: '0 auto', fontSize: '1.1rem', lineHeight: 1.6 }}>
-                            We've eliminated the tedious manual work. Here is how CertLock turns your spreadsheets into prestigious credentials.
+                            We've eliminated the tedious manual work. Here is how CertifyPro turns your spreadsheets into prestigious credentials.
                         </p>
                     </div>
 
@@ -111,7 +113,7 @@ const LandingPage = ({ onStartApp, user }) => {
                         {[
                             { step: '01', title: 'Import Participants', desc: 'Upload your CSV or Excel list. We handle any column format, from names to specialized scores.', icon: 'pi-file-import', color: '#3B82F6' },
                             { step: '02', title: 'Map Your Template', desc: 'Drag and drop dynamic fields onto your certificate image. See your data update in real-time.', icon: 'pi-pencil', color: '#A855F7' },
-                            { step: '03', title: 'Bulk Generate', desc: 'CertLock blasts through 1000 certificates within 10 minutes, generating secure, signed PDFs and sending them via email.', icon: 'pi-send', color: '#10B981' },
+                            { step: '03', title: 'Bulk Generate', desc: 'CertifyPro blasts through 1000 certificates within 10 minutes, generating secure, signed PDFs and sending them via email.', icon: 'pi-send', color: '#10B981' },
                         ].map((s, i) => (
                             <div key={i} data-aos="fade-up" data-aos-delay={i * 150} style={{ position: 'relative' }}>
                                 <div style={{ fontSize: '5rem', fontWeight: 900, color: '#F1F5F9', position: 'absolute', top: -30, left: -10, zIndex: 1, fontFamily: 'Outfit' }}>{s.step}</div>
@@ -333,7 +335,7 @@ const LandingPage = ({ onStartApp, user }) => {
                             Scaling Your Reach?
                         </h2>
                         <p style={{ color: 'var(--text-secondary)', marginBottom: 32, lineHeight: 1.8, fontSize: '1.05rem', fontWeight: 500 }}>
-                            CertLock is <strong>completely free</strong> with a 100-certificate limit per run.
+                            CertifyPro is <strong>completely free</strong> with a 100-certificate limit per run.
                             For organizations needing unlimited generation, custom branding, or integrated API access — we offer dedicated enterprise solutions.
                         </p>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: 40 }}>
@@ -352,14 +354,17 @@ const LandingPage = ({ onStartApp, user }) => {
                                 fontWeight: 800, border: '1px solid var(--border)', borderRadius: 14, cursor: 'pointer',
                                 boxShadow: 'var(--shadow-card)'
                             }}
-                            onClick={() => window.location.href = 'https://vsgrps.netlify.app/'}
+                            onClick={() => {
+                                const contactEl = document.getElementById('contact');
+                                if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+                            }}
                         >
                             <i className="pi pi-comment" style={{ marginRight: 10 }}></i> Discuss Requirements
                         </button>
                     </div>
 
                     <div data-aos="fade-left" style={{ flex: 1, width: '100%' }}>
-                        {/* Dashboard Mockup (Premium Dark Mode) */}
+                        {/* Dashboard Mockup */}
                         <div style={{
                             background: 'var(--bg-card)', borderRadius: 32, padding: 32,
                             boxShadow: 'var(--shadow-card)', border: '1px solid var(--border)',
@@ -375,17 +380,17 @@ const LandingPage = ({ onStartApp, user }) => {
                             </div>
 
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
-                                <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 16, padding: '20px 16px', border: '1px solid var(--border)' }}>
+                                <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, padding: '20px 16px', border: '1px solid var(--border)' }}>
                                     <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text)' }}>42,840</div>
                                     <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', fontWeight: 800, textTransform: 'uppercase', marginTop: 4 }}>Completed</div>
                                 </div>
-                                <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 16, padding: '20px 16px', border: '1px solid var(--border)' }}>
+                                <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, padding: '20px 16px', border: '1px solid var(--border)' }}>
                                     <div style={{ fontSize: '1.25rem', fontWeight: 900, color: '#10B981' }}>99.9%</div>
                                     <div style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', fontWeight: 800, textTransform: 'uppercase', marginTop: 4 }}>Uptime</div>
                                 </div>
                             </div>
 
-                            <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: 16, height: 100, position: 'relative', overflow: 'hidden' }}>
+                            <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, height: 100, position: 'relative', overflow: 'hidden' }}>
                                 <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: 'linear-gradient(to top, transparent, rgba(59,130,246,0.1))', display: 'flex', alignItems: 'flex-end', gap: 4, padding: '0 12px' }}>
                                     {[40, 70, 45, 90, 65, 80, 50, 95, 70, 85].map((h, i) => (
                                         <div key={i} style={{ flex: 1, height: `${h}%`, background: 'var(--aurora-gradient)', borderRadius: '4px 4px 0 0', opacity: 0.8 }}></div>
@@ -401,20 +406,17 @@ const LandingPage = ({ onStartApp, user }) => {
             <section id="contact" style={{ padding: '80px 24px', background: 'var(--bg-primary)' }}>
                 <div style={{ maxWidth: 640, margin: '0 auto', textAlign: 'center' }} data-aos="fade-up">
                     <div className="badge badge-blue" style={{ marginBottom: 16 }}>
-                        <i className="pi pi-envelope"></i> Contact
+                        <i className="pi pi-envelope"></i> Contact Support
                     </div>
                     <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 900, marginBottom: 12, fontFamily: 'var(--font-h)', color: 'var(--text)' }}>
-                        Get In Touch With VSGRPS
+                        Get In Touch With Support
                     </h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: 36, fontSize: '0.95rem', lineHeight: 1.7, fontWeight: 500 }}>
                         Questions about Enterprise Features, custom integrations, or need professional guidance for your organization?
                     </p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center' }}>
-                        <button className="btn btn-blue" onClick={() => window.location.href = 'https://vsgrps.netlify.app/'}>
-                            <i className="pi pi-envelope"></i> Email Consultants
-                        </button>
-                        <button className="btn btn-ghost" onClick={() => window.location.href = 'tel:8807099288'}>
-                            <i className="pi pi-phone"></i> Book Strategy Call
+                        <button className="btn btn-blue" onClick={() => window.location.href = 'mailto:support@certifypro.com'}>
+                            <i className="pi pi-envelope"></i> Email Support
                         </button>
                     </div>
                 </div>
@@ -502,7 +504,7 @@ const LandingPage = ({ onStartApp, user }) => {
             <footer style={{ borderTop: '1px solid var(--border)', padding: '60px 24px', background: 'var(--bg-primary)' }}>
                 <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 32 }}>
                     <div style={{ height: 60, display: 'flex', alignItems: 'center' }}>
-                        <img src="/logo.png" alt="CertLock Logo" style={{ height: '100%', width: 'auto', objectFit: 'contain' }} />
+                        <img src="/logo.png" alt="CertifyPro Logo" style={{ height: '100%', width: 'auto', objectFit: 'contain' }} />
                     </div>
                     <div style={{ display: 'flex', gap: 32, fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
                         <span onClick={() => setShowPrivacy(true)} style={{ transition: 'color 0.2s', cursor: 'pointer' }}>Privacy Policy</span>
@@ -512,14 +514,9 @@ const LandingPage = ({ onStartApp, user }) => {
                         <span onClick={() => setShowSecurity(true)} style={{ transition: 'color 0.2s', cursor: 'pointer' }}>Security</span>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
-                        <center> <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-                            © 2026 CertLock. Empowering creators.
+                        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+                            © 2026 CertifyPro. Empowering creators and securing achievements worldwide.
                         </div>
-                            <a href="https://vsgrps.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', opacity: 0.9, transition: 'opacity 0.2s' }}>
-                                <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-secondary)', letterSpacing: '0.05em' }}>DEVELOPED BY</span>
-                                <img src={vsgrpsLogo} alt="VSGRPS Logo" style={{ height: 24, width: 'auto', objectFit: 'contain' }} />
-                            </a></center>
-
                     </div>
                 </div>
             </footer>

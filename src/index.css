@@ -3,15 +3,15 @@
 /* ═══════════════════════════════════════════
    AURORA DESIGN SYSTEM — TOKEN LAYER
    ═══════════════════════════════════════════ */
-:root {
-  /* Core Colors (Precision Match to Logo) */
+:root, :root[data-theme="dark"] {
+  /* Core Colors (Dark Theme) */
   --bg:           #02060c;
   --bg-primary:   #02060c;
-  --bg-card:      #02060c;
+  --bg-card:      #080e1a;
   --bg-secondary: #050a14;
   --bg-sidebar:   linear-gradient(180deg, #010409 0%, #02060c 50%, #030812 100%);
 
-  /* Aurora Gradient (Matched to Logo highlights) */
+  /* Aurora Gradient */
   --aurora-1: #3B82F6;
   --aurora-2: #22d3ee;
   --aurora-3: #8b5cf6;
@@ -46,29 +46,51 @@
   --shadow-blue:      0 8px 32px -8px rgba(37,99,235,0.35);
   --shadow-aurora:    0 20px 60px -15px rgba(59,130,246,0.25);
 
-  /* Layout */
+  /* Layout & Utility */
   --sidebar-w:  272px;
   --topbar-h:   68px;
-
-  /* Radii */
   --radius:    14px;
   --radius-lg: 22px;
   --radius-xl: 30px;
-
-  /* Typography */
   --font:   'Inter', -apple-system, sans-serif;
   --font-h: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Easing */
   --ease:        cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
-
-  /* Transitions */
   --transition-fast:   all 0.15s var(--ease);
   --transition-normal: all 0.25s var(--ease);
   --transition-slow:   all 0.4s var(--ease);
+}
+
+:root[data-theme="light"] {
+  /* Core Colors (Light Theme) */
+  --bg:           #f8fafc;
+  --bg-primary:   #f8fafc;
+  --bg-card:      #ffffff;
+  --bg-secondary: #f1f5f9;
+  --bg-sidebar:   linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  /* Accent */
+  --accent:         #2563eb;
+  --accent-hover:   #1d4ed8;
+  --accent-light:   #3b82f6;
+  --accent-lighter: rgba(37, 99, 235, 0.08);
+  --accent-glow:    0 0 30px rgba(37, 99, 235, 0.12);
+
+  /* Text */
+  --text:          #0f172a;
+  --text-secondary:#334155;
+  --text-sub:      #475569;
+  --text-muted:    #64748b;
+
+  /* Borders */
+  --border:       rgba(15, 23, 42, 0.1);
+  --border-hover: rgba(15, 23, 42, 0.2);
+
+  /* Shadows */
+  --shadow-card:      0 8px 30px rgba(0,0,0,0.06);
+  --shadow-card-hover:0 16px 40px rgba(0,0,0,0.1);
+  --shadow-blue:      0 8px 24px -6px rgba(37,99,235,0.25);
+  --shadow-aurora:    0 16px 40px -10px rgba(37,99,235,0.15);
 }
 
 /* ═══════════════════════════════════════════

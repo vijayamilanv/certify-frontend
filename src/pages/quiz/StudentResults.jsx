@@ -57,7 +57,7 @@ const StudentResults = () => {
                 display: 'flex', alignItems: 'center', justifyContent: 'space-between'
             }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }} onClick={() => navigate('/')}>
-                    <img src="/logo.png" alt="CertLock Logo" style={{ height: 42, width: 'auto', objectFit: 'contain' }} />
+                    <img src="/logo.png" alt="CertifyPro Logo" style={{ height: 42, width: 'auto', objectFit: 'contain' }} />
                 </div>
                 <Button label="Home" icon="pi pi-home" className="p-button-text p-button-sm" onClick={() => navigate('/')} />
             </nav>
