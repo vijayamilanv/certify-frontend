@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Loader from './components/Loader';
+import StartupCheck from './components/StartupCheck';
 
 // Lazy-loaded route components (only downloaded when user visits that page)
 const CertifyStudio = lazy(() => import('./CertifyStudio'));
@@ -16,7 +17,6 @@ const Leaderboard = lazy(() => import('./pages/quiz/Leaderboard'));
 const History = lazy(() => import('./pages/quiz/History'));
 const Analytics = lazy(() => import('./pages/quiz/Analytics'));
 const StudentResults = lazy(() => import('./pages/quiz/StudentResults'));
-import StartupCheck from './components/StartupCheck';
 
 
 
